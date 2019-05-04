@@ -4,22 +4,13 @@ package com.example.lab8;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 
 /**
@@ -31,14 +22,13 @@ public class BookDetailsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    TextView tv;
-    ImageView imageView;
-    String bookSelected;
-    String title;
-    String author;
-    String publish;
-    public static final String BOOK_KEY = "myBook";
-    Book pagerBooks;
+    private TextView textView;
+    private ImageView imageView;
+    private String title;
+    private String author;
+    private String publish;
+    private static final String BOOK_KEY = "myBook";
+    private Book book;
 
     public static BookDetailsFragment newInstance(Book bookList) {
         BookDetailsFragment fragment = new BookDetailsFragment();
@@ -51,8 +41,8 @@ public class BookDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(getArguments() != null){
-            pagerBooks = getArguments().getParcelable(BOOK_KEY);
+        if (getArguments() != null) {
+            book = getArguments().getParcelable(BOOK_KEY);
         }
     }
 
@@ -60,25 +50,26 @@ public class BookDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_details, container, false);
-        tv = view.findViewById(R.id.bookTitle);
+        textView = view.findViewById(R.id.bookTitle);
         imageView = view.findViewById(R.id.bookImage);
-        if(getArguments() != null) {
-            displayBook(pagerBooks);
+        if (getArguments() != null) {
+            displayBook(book);
         }
 
         return view;
     }
 
-    public void displayBook(Book bookObj){
+    public void displayBook(Book bookObj) {
         author = bookObj.getAuthor();
-        title = bookObj.getTitle(); publish = bookObj.getPublished();
-        tv.setText(" \"" + title + "\" "); tv.append(" " + author); tv.append(" " + publish);
-        tv.setTextSize(30);
-        tv.setTextColor(Color.BLACK);
+        title = bookObj.getTitle();
+        publish = bookObj.getPublished();
+        textView.setText(" \"" + title + "\" ");
+        textView.append(" " + author);
+        textView.append(" " + publish);
+
         String imageURL = bookObj.getCoverURL();
         Picasso.get().load(imageURL).into(imageView);
     }
-
 
 
 }

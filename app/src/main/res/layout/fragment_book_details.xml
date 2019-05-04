@@ -12,7 +12,7 @@
         android:layout_height="95dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:textSize="32sp"
+        android:textSize="24sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,15 +23,14 @@
 
     <ImageView
         android:id="@+id/bookImage"
-        android:layout_width="0dp"
-        android:layout_height="209dp"
+        android:layout_width="339dp"
+        android:layout_height="241dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintVertical_bias="0.443" />
 
 </android.support.constraint.ConstraintLayout>

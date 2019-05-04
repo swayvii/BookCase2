@@ -14,9 +14,11 @@ public class Book implements Parcelable {
     private String published;
 
     public Book(JSONObject jsonBook) throws JSONException {
-        this.title = jsonBook.getString("title"); this.author = jsonBook.getString("author");
+        this.title = jsonBook.getString("title");
+        this.author = jsonBook.getString("author");
         this.coverURL = jsonBook.getString("cover_url");
-        this.id = jsonBook.getInt("book_id"); this.published = jsonBook.getString("published");
+        this.id = jsonBook.getInt("book_id");
+        this.published = jsonBook.getString("published");
     }
 
     protected Book(Parcel in) {
@@ -28,13 +30,16 @@ public class Book implements Parcelable {
     }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
+
         @Override
         public Book createFromParcel(Parcel in) {
+
             return new Book(in);
         }
 
         @Override
         public Book[] newArray(int size) {
+
             return new Book[size];
         }
     };
@@ -56,26 +61,32 @@ public class Book implements Parcelable {
     }
 
     public void setAuthor(String author) {
+
         this.author = author;
     }
 
     public void setCoverURL(String coverURL) {
+
         this.coverURL = coverURL;
     }
 
     public int getId() {
+
         return id;
     }
 
     public String getPublished() {
+
         return published;
     }
 
     public String getTitle() {
+
         return title;
     }
 
     public String getAuthor() {
+
         return author;
     }
 
@@ -85,6 +96,7 @@ public class Book implements Parcelable {
 
     @Override
     public int describeContents() {
+
         return 0;
     }
 

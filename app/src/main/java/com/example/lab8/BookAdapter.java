@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class BookAdapter extends BaseAdapter implements Filterable {
 
-    Context c;
-    ArrayList<Book> books ;
+    private Context c;
+    private ArrayList<Book> books;
 
     public BookAdapter(Context context, ArrayList<Book> books) {
         this.c = context;
@@ -38,10 +38,10 @@ public class BookAdapter extends BaseAdapter implements Filterable {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        TextView tv = new TextView(c);
-        tv.setText(books.get(position).getTitle());
-        tv.setTextSize(24);
-        return tv;
+        TextView textView = new TextView(c);
+        textView.setText(books.get(position).getTitle());
+        textView.setTextSize(24);
+        return textView;
     }
 
     @Override
